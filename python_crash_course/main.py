@@ -1,18 +1,18 @@
-print("how are you doing?")
+# print("how are you doing?")
 
-a= "hello world"
-b = str(4)
-c = 3.14
-print(a + b)
-print(c + b)
+# a= "hello world"
+# b = str(4)
+# c = 3.14
+# print(a + b)
+# print(c + b)
 
-a = 5
-print(type(a))
+# a = 5
+# print(type(a))
 
-a = 5;          
-A = 10;
-print(a)
-print(A)
+# a = 5;          
+# A = 10;
+# print(a)
+# print(A)
 
 # 2name = "ram"
 # print(2name)    
@@ -31,7 +31,7 @@ print(A)
 # name = input("what is your name? ")
 # print("hello " + name + "!")
 
-cars = ["bmw", "audi", "toyota", "subaru"]
+# cars = ["bmw", "audi", "toyota", "subaru"]
 # print(cars)
 # print(cars[0])
 # print(cars[1])
@@ -84,7 +84,7 @@ cars = ["bmw", "audi", "toyota", "subaru"]
 # txt = "We are the so-called \"Vikings\" from the north."
 # print(txt)
 
-fruit = ["apple", "banana", "cherry",  "orange", "kiwi", "melon", "mango"]
+# fruit = ["apple", "banana", "cherry",  "orange", "kiwi", "melon", "mango"]
 # print(fruit[1:4])
 # fruit[1] = "blackcurrant"
 # print(fruit)
@@ -190,3 +190,49 @@ fruit = ["apple", "banana", "cherry",  "orange", "kiwi", "melon", "mango"]
 
 
 
+#this is the salary calculator program
+# name = input("enter your name: ")
+# hour = int(input("enter your working hour: "))
+# perDayWorkingHour = 8
+# hourlyRate = 1000
+# overTimeRate = hourlyRate * 0.25
+
+# def personWage(hour):
+#     if hour > perDayWorkingHour:
+#         overTime = hour - perDayWorkingHour
+#         wage = (perDayWorkingHour * hourlyRate) + overTime * overTimeRate
+#         return wage
+
+#     else:
+#         wage = hour * hourlyRate
+#     return wage
+
+
+
+# print(name + " your total wage is " + str(personWage(hour)))
+
+
+
+
+      
+
+
+import sqlite3
+
+# 1. Connect to the file name you want (this creates it if missing)
+conn = sqlite3.connect('ERP_SYSTEM.db')
+
+# 2. Open and read your downloaded SQL file from FillDB
+# Replace 'data.sql' with your actual downloaded filename
+with open('data.sql', 'r') as f:
+    sql_script = f.read()
+
+# 3. Execute the script to create tables and insert data
+try:
+    conn.executescript(sql_script)
+    conn.commit()
+    print("Data imported successfully!")
+except sqlite3.Error as e:
+    print(f"Error during import: {e}")
+finally:
+    conn.close()
